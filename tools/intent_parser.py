@@ -6,7 +6,7 @@ if str(PARENT_DIR) not in sys.path:
     sys.path.append(str(PARENT_DIR))
 
 import json
-from tools import text_cleaner
+from tools import text_cleaner, time, weather
 import random
 
 JSON_PATH = PARENT_DIR / "data" / "intent.json"
@@ -22,7 +22,12 @@ def find_intent_contains(user_input, intents_data=load_intents()):
     for intent in intents_data["intents"]:
         for pattern in intent["patterns"]:
             if pattern.lower() in user_input:
-                return intent["responses"]
+                if intent["responses"] == ["weather"]:
+                    return f"Η τωρινη θερμοκρασία ειναι: {weather.get_weather()}"
+                elif intent["responses"] == ["time"]:
+                    return f"Η τωρινη ημερομηνία και ώρα ειναι: {time.get_datetime()}"
+                else:
+                    return intent["responses"]
             
     return "unknown"
 
