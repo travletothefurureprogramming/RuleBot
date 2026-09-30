@@ -1,12 +1,23 @@
 from tools.intent_parser import get_response
 
 def main():
-    user_input = None
+    print("=" * 45)
+    print("🤖  RuleBot - Smart CLI Assistant  🤖")
+    print("=" * 45)
+    print("Πληκτρολόγησε 'exit' ή 'βγαίνω' για έξοδο.\n")
 
-    while user_input != "exit":
-        print("Πώς μπορώ να βοηθήσω;")
-        user_input = input("> ")
+    while True:
+        user_input = input("Εσύ > ").strip()
 
-        print(get_response(user_input))
+        if user_input.lower() in ["exit", "βγαινω", "κλεισε"]:
+            print("RuleBot > Αντίο! Καλή συνέχεια!")
+            break
 
-main()
+        if not user_input:
+            continue
+
+        response = get_response(user_input)
+        print(f"RuleBot > {response}\n")
+
+if __name__ == "__main__":
+    main()
