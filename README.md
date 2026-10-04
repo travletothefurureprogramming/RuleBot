@@ -6,14 +6,10 @@ A lightweight, rule-based Python chatbot that recognizes intents from JSON and r
 - **Text Cleaning**: Removal of accents & conversion to lowercase.
 - **Dynamic Responses**: Live temperature (API) & system time.
 
-## Execution
-Install dependencies
+## How to run it
 
-`pip install -r requirements.txt`
-
-# Run
-
-`python main.py`
+Download the main.exe from the Releases
+That's it!!!!
 
 # License
 
